@@ -9,9 +9,9 @@ module.exports = {
   doubleArray: function(arr) {
     var result = [];
     for (var i = 0; i < arr.length; i++) {
-      result.push(arr[i] * 2) 
+      result.push(arr[i] * 2);
     }
-    return result
+    return result;
   },
 
   /* #sumArrays
@@ -256,7 +256,7 @@ module.exports = {
     var result = 0;
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].length <= 3) {
-        result++
+        result++;
       }
     }
     return result;
@@ -314,7 +314,7 @@ module.exports = {
   makeObject: function(key, value) {
     return {
       [key]: value
-    }
+    };
   },
 
   /* #makeObjectReverse
@@ -328,7 +328,7 @@ module.exports = {
   makeObjectReverse: function(value, key) {
     return {
       [key]: value
-    }
+    };
   },
 
   /* #tupleToObject
@@ -341,7 +341,7 @@ module.exports = {
   tupleToObject: function(arr) {
     return {
       [arr[0]]: arr[1]
-    }
+    };
   },
 
   /* #tupleToObjectReverse
@@ -354,7 +354,7 @@ module.exports = {
   tupleToObjectReverse: function(arr) {
     return {
       [arr[1]]: arr[0]
-    }
+    };
   },
 
   /* #strToKeys
@@ -468,7 +468,7 @@ module.exports = {
       arr[i].push(Object.keys(obj1)[i]);
       arr[i].push(Object.values(obj1)[i]);
     }
-    for (var j = arr.length; j < (obj1Length + obj2Length); j++) {
+    for (var j = arr.length; j < obj1Length + obj2Length; j++) {
       arr.push([]);
       arr[j].push(Object.keys(obj2)[k]);
       arr[j].push(Object.values(obj2)[k]);
@@ -600,10 +600,11 @@ module.exports = {
   * @return {Bool}
   */
   tupleConvertToObject: function(arr) {
-    var obj = {}
+    var obj = {};
     for (var i = 0; i < arr.length; i++) {
       obj[arr[i][0]] = arr[i][1];
     }
     return obj;
   }
-}
+};
+
