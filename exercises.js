@@ -7,11 +7,7 @@ module.exports = {
   * @return {Array} // [2,4,6]
   */
   doubleArray: function(arr) {
-    var result = [];
-    for (var i = 0; i < arr.length; i++) {
-      result.push(arr[i] * 2);
-    }
-    return result;
+    return arr.map(elem => elem * 2);
   },
 
   /* #sumArrays
@@ -23,14 +19,7 @@ module.exports = {
   * @return {Bool}
   */
   sumArrays: function(arr1, arr2) {
-    var result = 0;
-    for (var i = 0; i < arr1.length; i++) {
-      result += arr1[i];
-    }
-    for (var i = 0; i < arr2.length; i++) {
-      result += arr2[i];
-    }
-    return result;
+    return arr1.reduce((a, b) => a + b) + arr2.reduce((a, b) => a + b);
   },
 
   /* #stringCount
@@ -63,11 +52,7 @@ module.exports = {
   * @return {Number}
   */
   countAll: function(arr) {
-    var result = 0;
-    for (var i = 0; i < arr.length; i++) {
-      result += arr[i];
-    }
-    return result;
+    return arr.reduce((a, b) => a + b);
   },
 
   /* #countStrings
@@ -78,11 +63,7 @@ module.exports = {
   * @return {Array}
   */
   countStrings: function(arr) {
-    var lengthArr = [];
-    for (var i = 0; i < arr.length; i++) {
-      lengthArr.push(arr[i].length);
-    }
-    return lengthArr;
+    return arr.map(elem => elem.length);
   },
 
   /* #countAllStrings
@@ -93,11 +74,7 @@ module.exports = {
   * @return {Number}
   */
   countAllStrings: function(arr) {
-    var result = 0;
-    for (var i = 0; i < arr.length; i++) {
-      result += arr[i].length;
-    }
-    return result;
+    return arr.map(elem => elem.length).reduce((a, b) => a + b);
   },
 
   /* #convertToArray
@@ -108,11 +85,7 @@ module.exports = {
   * @return {Array}
   */
   convertToArray: function(obj) {
-    var arr = [];
-    for (var i = 0; i < Object.values(obj).length; i++) {
-      arr.push(Object.values(obj)[i]);
-    }
-    return arr;
+    return Object.values(obj);
   },
 
   /* #objectSize
@@ -134,11 +107,7 @@ module.exports = {
   * @return {Zero}
   */
   createZeroFilledArray: function(num) {
-    var arr = [];
-    for (var i = 0; i < num; i++) {
-      arr.push(0);
-    }
-    return arr;
+    return Array.apply(null, Array(num)).map(elem => elem = 0);
   },
 
   /* #poppedArray
@@ -149,8 +118,7 @@ module.exports = {
   * @return {Array}
   */
   poppedArray: function(arr) {
-    arr.pop();
-    return arr;
+    return arr.filter(elem => arr.indexOf(elem) < arr.length - 1);
   },
 
   /* #splitString
@@ -161,11 +129,7 @@ module.exports = {
   * @return {Array}
   */
   splitString: function(str) {
-    var arr = [];
-    for (var i = 0; i < str.length; i++) {
-      arr.push(str[i]);
-    }
-    return arr;
+    return Array.prototype.filter.call(str, elem => elem);
   },
 
   /* #lengthOfLast
@@ -187,13 +151,7 @@ module.exports = {
   * @return {Number}
   */
   sumBelowTen: function(arr) {
-    var result = 0;
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i] < 10) {
-        result += arr[i];
-      }
-    }
-    return result;
+    return arr.filter(elem => elem < 10).reduce((a, b) => a + b);
   },
 
   /* #moreThanTenLetters
@@ -204,13 +162,7 @@ module.exports = {
   * @return {Number}
   */
   moreThanTenLetters: function(arr) {
-    var result = 0;
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i].length > 10) {
-        result++;
-      }
-    }
-    return result;
+    return arr.filter(elem => elem.length > 10).length;
   },
 
   /* #multiplyAll
@@ -221,11 +173,7 @@ module.exports = {
   * @return {Number}
   */
   multiplyAll: function(arr) {
-    var result = [[arr[0]]];
-    for (var i = 1; i < arr.length; i++) {
-      result *= arr[i];
-    }
-    return result;
+    return arr.reduce((a, b) => a * b);
   },
 
   /* #sumAllPositive
@@ -236,13 +184,7 @@ module.exports = {
   * @return {Number}
   */
   sumAllPositive: function(arr) {
-    var result = 0;
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i] >= 0) {
-        result += arr[i];
-      }
-    }
-    return result;
+    return arr.filter(elem => elem > 0).reduce((a, b) => a + b);
   },
 
   /* #stringCountBelowThree
@@ -253,13 +195,7 @@ module.exports = {
   * @return {Number}
   */
   stringCountBelowThree: function(arr) {
-    var result = 0;
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i].length <= 3) {
-        result++;
-      }
-    }
-    return result;
+    return arr.filter(elem => elem.length <= 3).length;
   },
 
   /* #countObjects
@@ -281,11 +217,7 @@ module.exports = {
   * @return {Array}
   */
   getObjectKeys: function(obj) {
-    var arr = [];
-    for (var i = 0; i < Object.keys(obj).length; i++) {
-      arr.push(Object.keys(obj)[i]);
-    }
-    return arr;
+    return Object.keys(obj);
   },
 
   /* #getObjectValues
@@ -296,11 +228,7 @@ module.exports = {
   * @return {Array}
   */
   getObjectValues: function(obj) {
-    var arr = [];
-    for (var i = 0; i < Object.values(obj).length; i++) {
-      arr.push(Object.values(obj)[i]);
-    }
-    return arr;
+    return Object.values(obj);
   },
 
   /* #makeObject
@@ -312,9 +240,7 @@ module.exports = {
   * @return {Object}
   */
   makeObject: function(key, value) {
-    return {
-      [key]: value
-    };
+    return { [key]: value };
   },
 
   /* #makeObjectReverse
@@ -326,9 +252,7 @@ module.exports = {
   * @return {Bool}
   */
   makeObjectReverse: function(value, key) {
-    return {
-      [key]: value
-    };
+    return { [key]: value };
   },
 
   /* #tupleToObject
@@ -339,9 +263,7 @@ module.exports = {
   * @return {Object}
   */
   tupleToObject: function(arr) {
-    return {
-      [arr[0]]: arr[1]
-    };
+    return { [arr[0]]: arr[1] };
   },
 
   /* #tupleToObjectReverse
@@ -352,9 +274,7 @@ module.exports = {
   * @return {Object}
   */
   tupleToObjectReverse: function(arr) {
-    return {
-      [arr[1]]: arr[0]
-    };
+    return { [arr[1]]: arr[0] };
   },
 
   /* #strToKeys
@@ -365,11 +285,10 @@ module.exports = {
   * @return {Object}
   */
   strToKeys: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      obj[arr[i]] = 0;
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = 0;
+      return result;
+    }, {});
   },
 
   /* #getValues
@@ -403,18 +322,7 @@ module.exports = {
   * @return {Array}
   */
   objectToArray: function(obj) {
-    var arr = [];
-    var objLength = Object.keys(obj).length;
-    for (var i = 0; i < objLength; i++) {
-      arr.push([]);
-    }
-    for (var j = 0; j < objLength; j++) {
-      arr[j].push(Object.keys(obj)[j]);
-    }
-    for (var k = 0; k < objLength; k++) {
-      arr[k].push(Object.values(obj)[k]);
-    }
-    return arr;
+    return Object.entries(obj);
   },
 
   /* #arrayToObject
@@ -426,11 +334,10 @@ module.exports = {
   * @return {Object}
   */
   arrayToObject: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      obj[arr[i]] = false;
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = false;
+      return result;
+    }, {});
   },
 
   /* #arraysToObject
@@ -443,11 +350,11 @@ module.exports = {
   * @return {Object}
   */
   arraysToObject: function(arr1, arr2) {
-    var obj = {};
-    for (var i = 0; i < arr1.length; i++) {
-      obj[arr1[i]] = arr2[i];
-    }
-    return obj;
+    const tuples = arr1.map((elem, index) => [arr1[index], arr2[index]]);
+    return tuples.reduce((result, elem) => {
+      result[elem[0]] = elem[1];
+      return result;
+    }, {});
   },
 
   /* #objectsToTuples
