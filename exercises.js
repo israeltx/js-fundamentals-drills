@@ -366,22 +366,7 @@ module.exports = {
   * @return {Array}
   */
   objectsToTuples: function(obj1, obj2) {
-    var obj1Length = Object.keys(obj1).length;
-    var obj2Length = Object.keys(obj2).length;
-    var arr = [];
-    var k = 0;
-    for (var i = 0; i < obj1Length; i++) {
-      arr.push([]);
-      arr[i].push(Object.keys(obj1)[i]);
-      arr[i].push(Object.values(obj1)[i]);
-    }
-    for (var j = arr.length; j < obj1Length + obj2Length; j++) {
-      arr.push([]);
-      arr[j].push(Object.keys(obj2)[k]);
-      arr[j].push(Object.values(obj2)[k]);
-      k++;
-    }
-    return arr;
+    return Object.entries(obj1).concat(Object.entries(obj2));
   },
 
   /* #mapArrayValues
@@ -392,11 +377,10 @@ module.exports = {
   * @return {Object}
   */
   mapArrayValues: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      obj[arr[i]] = true;
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = true;
+      return result;
+    }, {});
   },
 
   /* #mapStringCounts
@@ -409,15 +393,10 @@ module.exports = {
   * @return {Object}
   */
   mapStringCounts: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i].length >= 5) {
-        obj[arr[i]] = true;
-      } else {
-        obj[arr[i]] = false;
-      }
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = elem.length >= 5 ? true : false;
+      return result;
+    }, {});
   },
 
   /* #arrayToObjectNums
@@ -429,11 +408,10 @@ module.exports = {
   * @return {Object}
   */
   arrayToObjectNums: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      obj[arr[i]] = true;
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = true;
+      return result;
+    }, {});
   },
 
   /* #stringToKeys
@@ -444,11 +422,10 @@ module.exports = {
   * @return {Object}
   */
   stringToKeys: function(str) {
-    var obj = {};
-    for (var i = 0; i < str.length; i++) {
-      obj[str[i]] = true;
-    }
-    return obj;
+    return [].reduce.call(str, (result, elem) => {
+      result[elem] = true;
+      return result;
+    }, {});
   },
 
   /* #charCountMap
@@ -460,11 +437,10 @@ module.exports = {
   * @return {Object}
   */
   charCountMap: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      obj[arr[i]] = arr[i].length;
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = elem.length;
+      return result;
+    }, {});
   },
 
   /* #frequencyMap
@@ -475,27 +451,10 @@ module.exports = {
   * @return {Bool}
   */
   frequencyMap: function(arr) {
-    var obj = {};
-    var namesOfPropertiesInArr = [];
-    var countOfPropertiesInArr = [];
-    for (var i = 0; i < arr.length; i++) {
-      var count = 0;
-      if (!namesOfPropertiesInArr.includes(arr[i])) {
-        namesOfPropertiesInArr.push(arr[i]);
-        for (var j = 0; j < arr.length; j++) {
-          if (arr[i] === arr[j]) {
-            count++;
-          }
-        }
-      }
-      if (count > 0) {
-        countOfPropertiesInArr.push(count);
-      }
-    }
-    for (var k = 0; k < namesOfPropertiesInArr.length; k++) {
-      obj[namesOfPropertiesInArr[k]] = countOfPropertiesInArr[k];
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem] = arr.filter((match) => match === elem).length;
+      return result;
+    }, {});
   },
 
   /* #tupleConvertToObject
@@ -507,11 +466,10 @@ module.exports = {
   * @return {Bool}
   */
   tupleConvertToObject: function(arr) {
-    var obj = {};
-    for (var i = 0; i < arr.length; i++) {
-      obj[arr[i][0]] = arr[i][1];
-    }
-    return obj;
+    return arr.reduce((result, elem) => {
+      result[elem[0]] = elem[1];
+      return result;
+    }, {});
   }
 };
 
