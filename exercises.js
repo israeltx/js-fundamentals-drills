@@ -350,11 +350,12 @@ module.exports = {
   * @return {Object}
   */
   arraysToObject: function(arr1, arr2) {
-    const tuples = arr1.map((elem, index) => [arr1[index], arr2[index]]);
-    return tuples.reduce((result, elem) => {
-      result[elem[0]] = elem[1];
-      return result;
-    }, {});
+    return arr1
+      .map((elem, index) => [arr1[index], arr2[index]])
+      .reduce((result, elem) => {
+        result[elem[0]] = elem[1];
+        return result;
+      }, {});
   },
 
   /* #objectsToTuples
