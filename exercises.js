@@ -5,13 +5,9 @@
  * @param {Array} // [1,2,3]
  * @return {Array} // [2,4,6]
  */
-var doubleArray = function(arr) {
-  var result = [];
-  for (var i = 0; i < arr.length; i++) {
-    result.push(arr[i] * 2) 
-  }
-  return result
-}
+var doubleArray = arr => {
+  return arr.map(num => num * 2);
+};
 
 /* #sumArrays
  *
@@ -21,7 +17,9 @@ var doubleArray = function(arr) {
  * @param {Array}
  * @return {Bool}
  */
-var sumArrays;
+const sumArrays = (arr1, arr2) => {
+  return arr1.concat(arr2).reduce((sum, num) => sum + num);
+};
 
 /* #stringCount
  *
@@ -30,7 +28,9 @@ var sumArrays;
  * @param {String}
  * @return {Number}
  */
-var stringCount;
+const stringCount = str => {
+  return str.length;
+};
 
 /* #arrayLength
  *
@@ -39,7 +39,9 @@ var stringCount;
  * @param {Array}
  * @return {Number}
  */
-var arrayLength;
+const arrayLength = arr => {
+  return arr.length;
+};
 
 /* #countAll
  *
@@ -48,7 +50,9 @@ var arrayLength;
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+const countAll = arr => {
+  return arr.reduce((sum, num) => sum + num);
+};
 
 /* #countStrings
  *
@@ -57,7 +61,9 @@ var countAll;
  * @param {Array}
  * @return {Array}
  */
-var countStrings;
+const countStrings = arr => {
+  return arr.map(str => str.length);
+};
 
 /* #countAllStrings
  *
@@ -66,7 +72,9 @@ var countStrings;
  * @param {String}
  * @return {Number}
  */
-var countAllStrings;
+const countAllStrings = arr => {
+  return arr.join('').length;
+};
 
 /* #convertToArray
  *
@@ -75,7 +83,9 @@ var countAllStrings;
  * @param {Object}
  * @return {Array}
  */
-var convertToArray;
+const convertToArray = obj => {
+  return Object.values(obj);
+};
 
 /* #objectSize
  *
@@ -84,7 +94,9 @@ var convertToArray;
  * @param {Object}
  * @return {Number}
  */
-var objectSize;
+const objectSize = obj => {
+  return Object.keys(obj).length;
+};
 
 /* #createZeroFilledArray
  *
@@ -93,7 +105,9 @@ var objectSize;
  * @param {Number}
  * @return {Zero}
  */
-var createZeroFilledArray;
+const createZeroFilledArray = num => {
+  return Array(num).fill(0, 0, num);
+};
 
 /* #poppedArray
  *
@@ -102,7 +116,9 @@ var createZeroFilledArray;
  * @param {Array}
  * @return {Array}
  */
-var poppedArray;
+const poppedArray = arr => {
+  return arr.slice(0, arr.length - 1);
+};
 
 /* #splitString
  *
@@ -111,7 +127,9 @@ var poppedArray;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+const splitString = str => {
+  return str.split('');
+};
 
 /* #lengthOfLast
  *
@@ -120,7 +138,9 @@ var splitString;
  * @param {String}
  * @return {Number}
  */
-var lengthOfLast;
+const lengthOfLast = arr => {
+  return arr[arr.length - 1].length;
+};
 
 /* #sumBelowTen
  *
@@ -129,7 +149,9 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
+const sumBelowTen = arr => {
+  return arr.filter(num => num < 10).reduce((sum, num) => sum + num);
+};
 
 /* #moreThanTenLetters
  *
@@ -138,7 +160,9 @@ var sumBelowTen;
  * @param {String}
  * @return {Number}
  */
-var moreThanTenLetters;
+const moreThanTenLetters = arr => {
+  return arr.filter(str => str.length > 10).length;
+};
 
 /* #multiplyAll
  *
@@ -147,7 +171,9 @@ var moreThanTenLetters;
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+const multiplyAll = arr => {
+  return arr.reduce((total, num) => total * num);
+};
 
 /* #sumAllPositive
  *
@@ -156,7 +182,9 @@ var multiplyAll;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+const sumAllPositive = arr => {
+  return arr.filter(num => num >= 0).reduce((sum, num) => sum + num);
+};
 
 /* #stringCountBelowThree
  *
@@ -165,7 +193,9 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+const stringCountBelowThree = arr => {
+  return arr.filter(str => str.length <= 3).length;
+};
 
 /* #countObjects
  *
@@ -174,7 +204,9 @@ var stringCountBelowThree;
  * @param {Array}
  * @return {Number}
  */
-var countObjects;
+const countObjects = arr => {
+  return arr.length;
+};
 
 /* #getObjectKeys
  *
@@ -183,7 +215,9 @@ var countObjects;
  * @param {Object}
  * @return {Array}
  */
-var getObjectKeys;
+const getObjectKeys = obj => {
+  return Object.keys(obj);
+};
 
 /* #getObjectValues
  *
@@ -192,7 +226,9 @@ var getObjectKeys;
  * @param {Object}
  * @return {Array}
  */
-var getObjectValues;
+const getObjectValues = obj => {
+  return Object.values(obj);
+};
 
 /* #makeObject
  *
@@ -202,7 +238,9 @@ var getObjectValues;
  * @param {String}
  * @return {Object}
  */
-var makeObject;
+const makeObject = (key, value) => {
+  return { [key]: value };
+};
 
 /* #makeObjectReverse
  *
@@ -212,7 +250,9 @@ var makeObject;
  * @param {String}
  * @return {Bool}
  */
-var makeObjectReverse;
+const makeObjectReverse = (value, key) => {
+  return { [key]: value };
+};
 
 /* #tupleToObject
  *
@@ -221,7 +261,9 @@ var makeObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObject;
+const tupleToObject = arr => {
+  return { [arr[0]]: arr[1] };
+};
 
 /* #tupleToObjectReverse
  *
@@ -230,7 +272,9 @@ var tupleToObject;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObjectReverse;
+const tupleToObjectReverse = arr => {
+  return { [arr[1]]: arr[0] };
+};
 
 /* #strToKeys
  *
@@ -239,7 +283,12 @@ var tupleToObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var strToKeys;
+const strToKeys = arr => {
+  return arr.reduce((obj, str) => {
+    obj[str] = 0;
+    return obj;
+  }, {});
+};
 
 /* #getValues
  *
@@ -248,7 +297,9 @@ var strToKeys;
  * @param {Object}
  * @return {Array}
  */
-var getValues;
+const getValues = obj => {
+  return Object.values(obj);
+};
 
 /* #getKeys
  *
@@ -257,17 +308,21 @@ var getValues;
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
+const getKeys = obj => {
+  return Object.keys(obj);
+};
 
 /* #objectToArray
  *
- * Takes in an object and returns an array of tuples where each tuple has 
+ * Takes in an object and returns an array of tuples where each tuple has
  * the object's key as element 0 and object's value as element 1.
  *
  * @param {Object}
  * @return {Array}
  */
-var objectToArray;
+const objectToArray = obj => {
+  return Object.entries(obj);
+};
 
 /* #arrayToObject
  *
@@ -277,18 +332,28 @@ var objectToArray;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObject;
+const arrayToObject = arr => {
+  return arr.reduce((obj, elem) => {
+    obj[elem] = false;
+    return obj;
+  }, {});
+};
 
 /* #arraysToObject
  *
- * takes in two arrays, the first array elements will be keys of an object and second array elements 
+ * takes in two arrays, the first array elements will be keys of an object and second array elements
  * will be values of an object.
  *
  * @param {Array}
  * @param {Array}
  * @return {Object}
  */
-var arraysToObject;
+const arraysToObject = (arr1, arr2) => {
+  return arr1.reduce((obj, key, index) => {
+    obj[key] = arr2[index];
+    return obj;
+  }, {});
+};
 
 /* #objectsToTuples
  *
@@ -298,7 +363,9 @@ var arraysToObject;
  * @param {Object}
  * @return {Array}
  */
-var objectsToTuples;
+const objectsToTuples = (obj1, obj2) => {
+  return Object.entries(obj1).concat(Object.entries(obj2));
+};
 
 /* #mapArrayValues
  *
@@ -307,7 +374,12 @@ var objectsToTuples;
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+const mapArrayValues = arr => {
+  return arr.reduce((obj, str) => {
+    obj[str] = true;
+    return obj;
+  }, {});
+};
 
 /* #mapStringCounts
  *
@@ -318,36 +390,56 @@ var mapArrayValues;
  * @param {Array}
  * @return {Object}
  */
-var mapStringCounts;
+const mapStringCounts = arr => {
+  return arr.reduce((obj, str) => {
+    obj[str] = str.length >= 5 ? true : false;
+    return obj;
+  }, {});
+};
 
 /* #arrayToObjectNums
  *
- * takes in an array of numbers and returns an object with keys set to 
+ * takes in an array of numbers and returns an object with keys set to
  * each element of the array and all values set to true.
  *
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+const arrayToObjectNums = arr => {
+  return arr.reduce((obj, num) => {
+    obj[num] = true;
+    return obj;
+  }, {});
+};
 
 /* #stringToKeys
  *
  * takes in a string and returns an object whos keys are each letter of the string and all values set to true.
- * 
+ *
  * @param {String}
  * @return {Object}
  */
-var stringToKeys;
+const stringToKeys = str => {
+  return Array.from(str).reduce((obj, letter) => {
+    obj[letter] = true;
+    return obj;
+  }, {});
+};
 
 /* #charCountMap
  *
- * takes in an array of strings and returns an object with keys set to each element of the array 
+ * takes in an array of strings and returns an object with keys set to each element of the array
  * and values set to the character count of each key name.
  *
  * @param {Array}
  * @return {Object}
  */
-var charCountMap;
+const charCountMap = arr => {
+  return arr.reduce((obj, str) => {
+    obj[str] = str.length;
+    return obj;
+  }, {});
+};
 
 /* #frequencyMap
  *
@@ -356,57 +448,66 @@ var charCountMap;
  * @param {String}
  * @return {Bool}
  */
-var frequencyMap;
+const frequencyMap = arr => {
+  return arr.reduce((obj, strReduce) => {
+    obj[strReduce] = arr.filter(strFilter => strReduce === strFilter).length;
+    return obj;
+  }, {});
+};
 
 /* #tupleConvertToObject
  *
- * takes in an array of tuples and and returns an object whos keys are 
+ * takes in an array of tuples and and returns an object whos keys are
  * the first element of the tuples and values are second element of the tuples.
  *
  * @param {String}
  * @return {Bool}
  */
-var tupleConvertToObject;
-
+const tupleConvertToObject = arr => {
+  return arr.reduce((obj, tuple) => {
+    obj[tuple[0]] = tuple[1];
+    return obj;
+  }, {});
+};
 
 module.exports = {
-  doubleArray: null,
-  sumArrays: null, 
-  stringCount: null,
-  arrayLength: null,
-  countAll: null,
-  countStrings: null,
-  countAllStrings: null,
-  convertToArray: null,
-  objectSize: null,
-  createZeroFilledArray: null,
-  poppedArray: null,
-  splitString: null,
-  lengthOfLast: null,
-  sumBelowTen: null,
-  moreThanTenLetters: null,
-  multiplyAll: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  countObjects: null,
-  getObjectKeys: null,
-  getObjectValues: null,
-  makeObject: null,
-  makeObjectReverse: null,
-  tupleToObject: null,
-  tupleToObjectReverse: null,
-  strToKeys: null,
-  getValues: null,
-  getKeys: null,
-  objectToArray: null,
-  arrayToObject: null,
-  arraysToObject: null,
-  objectsToTuples: null,
-  mapArrayValues: null,
-  mapStringCounts: null,
-  arrayToObjectNums: null,
-  stringToKeys: null,
-  charCountMap: null,
-  frequencyMap: null,
-  tupleConvertToObject: null
-}
+  doubleArray,
+  sumArrays,
+  stringCount,
+  arrayLength,
+  countAll,
+  countStrings,
+  countAllStrings,
+  convertToArray,
+  objectSize,
+  createZeroFilledArray,
+  poppedArray,
+  splitString,
+  lengthOfLast,
+  sumBelowTen,
+  moreThanTenLetters,
+  multiplyAll,
+  sumAllPositive,
+  stringCountBelowThree,
+  countObjects,
+  getObjectKeys,
+  getObjectValues,
+  makeObject,
+  makeObjectReverse,
+  tupleToObject,
+  tupleToObjectReverse,
+  strToKeys,
+  getValues,
+  getKeys,
+  objectToArray,
+  arrayToObject,
+  arraysToObject,
+  objectsToTuples,
+  mapArrayValues,
+  mapStringCounts,
+  arrayToObjectNums,
+  stringToKeys,
+  charCountMap,
+  frequencyMap,
+  tupleConvertToObject
+};
